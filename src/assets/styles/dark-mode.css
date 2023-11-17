@@ -1,0 +1,44 @@
+.dark-mode {
+  background-color: #202C36;
+}
+
+.dark-mode .mode-container {
+  background-color: #2B3844;
+  box-shadow: 0px 2px 4px rgba(0,0,0,0.06);
+}
+
+.dark-mode .mode-text { color: var(--bs-white); }
+
+.dark-mode .material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 1,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
+}
+
+.dark-mode .mode-label {
+  color: var(--bs-white);
+}
+
+.dark-mode .mode-input {
+  color: var(--bs-white);
+  background-color: transparent !important;
+}
+
+.dark-mode .mode-input::placeholder {
+  color: var(--bs-white);
+}
+
+.dark-mode .mode-filter {
+  background-color: #2B3844;
+  color: var(--bs-white);
+  background-image: url("../img/arrow-white.png");
+  background-repeat: no-repeat;
+  background-position: 90% 51%;
+  background-origin: padding-box;
+  background-size: 12px;
+  box-shadow: 0px 2px 4px rgba(0,0,0,0.06);
+}
+
+

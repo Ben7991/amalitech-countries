@@ -1,0 +1,38 @@
+.light-mode {
+  background-color: #FAFAFA;
+}
+
+.light-mode .mode-container {
+  background-color: #fff;
+  box-shadow: 0px 2px 4px rgba(0,0,0,0.06);
+}
+
+.light-mode .mode-text { color: var(--bs-dark); }
+
+.light-mode .material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
+}
+
+.light-mode .mode-label {
+  color: #b2b2b2;
+}
+
+.light-mode .mode-input {
+  color: #b2b2b2;
+  background-color: var(--bs-white) !important;
+}
+
+.light-mode .mode-filter {
+  background-color: #fff;
+  color: var(--bs-dark);
+  background-image: url("../img/arrow-black.png");
+  background-repeat: no-repeat;
+  background-position: 90% 51%;
+  background-origin: padding-box;
+  background-size: 12px;
+  box-shadow: 0px 2px 4px rgba(0,0,0,0.06);
+}
