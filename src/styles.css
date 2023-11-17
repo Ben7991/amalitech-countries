@@ -1,1 +1,33 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+  font-size: 0.875em !important;
+  font-family: "Open Sans", sans-serif;
+}
+
+.container-padding {
+  padding: 0 16px;
+}
+
+@media (min-width: 768px) {
+  .container-padding {
+    padding: 0 20px;
+  }
+}
+
+@media (min-width: 992px) {
+  .container-padding {
+    padding: 0 25px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container-padding {
+    padding: 0 40px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .container-padding {
+    padding: 0 80px;
+  }
+}
+
