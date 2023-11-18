@@ -1,0 +1,44 @@
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
+}
+
+.go-back-holder {
+  margin-top: 40px;
+  margin-bottom: 64px;
+}
+
+.go-back {
+  width: 104px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 32px;
+  column-gap: 8px;
+  -webkit-column-gap: 8px;
+  text-decoration: none;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  row-gap: 32px;
+  -webkit-row-gap: 32px;
+}
+
+@media (min-width: 768px) {
+  .go-back {
+    border-radius: 6px;
+    width: 135px;
+    height: 40px;
+  }
+
+  .details {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: start;
+  }
+}
