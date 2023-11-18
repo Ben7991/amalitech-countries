@@ -8,4 +8,5 @@ export interface Country {
   topLevelDomain: string;
   currency: string;
   languagues: string[];
+  borderCountries: string[];
 }
