@@ -1,9 +1,11 @@
-<a [routerLink]="'/details/' + country?.nativeName" class="link">
+<a [routerLink]="'/details/' + country?.commonName" class="link">
   <div class="card mode-container border-0">
-    <img class="card-img-top" alt="Country Flag" [src]="country?.flagPath">
+    <img class="card-img-top country-image" alt="Country Flag" [src]="country?.flag">
     <div class="card-body p-4 pb-5">
-      <h5 class="card-title mode-text mt-0 mb-4">{{ country?.nativeName }}</h5>
-      <p class="card-text mode-text mb-2"><strong class="fw-semibold">Population</strong>: {{ country?.population }}</p>
+      <h5 class="card-title mode-text mt-0 mb-4 fw-bold">{{ country?.commonName }}</h5>
+      <p class="card-text mode-text mb-2">
+        <strong class="fw-semibold">Population</strong>: {{ country?.population! | population  }}
+      </p>
       <p class="card-text mode-text mb-2"><strong class="fw-semibold">Region</strong>: {{ country?.region }}</p>
       <p class="card-text mode-text"><strong class="fw-semibold">Capital</strong>: {{ country?.capital }}</p>
     </div>
