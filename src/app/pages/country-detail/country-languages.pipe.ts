@@ -6,6 +6,9 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class CountryLanguagesPipe implements PipeTransform {
 
   transform(value: any, ...args: unknown[]): string {
+    if (value === undefined)
+      return "";
+
     let languages = <any[]>Object.values(value);
     let output = "";
 
