@@ -7,13 +7,13 @@ import { Country } from 'src/app/shared/types/country';
 export class FilterCountriesPipe implements PipeTransform {
 
   transform(value: Country[], filterString: string): Country[] {
-    if (filterString === "no-value" || value.length === 0)
+    if (filterString === "Filter By Region" || value.length === 0 || filterString === "")
       return value;
 
     const filteredCountries: Country[] = [];
 
     for (let item of value) {
-      if (item.continent === filterString)
+      if (item.continent === filterString || item.continent.includes(filterString))
         filteredCountries.push(item);
     }
 
