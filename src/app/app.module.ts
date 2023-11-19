@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from "@angular/common/http";
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -9,6 +11,12 @@ import { CountryDetailComponent } from './pages/country-detail/country-detail.co
 import { ThemeControllerComponent } from './components/theme-controller/theme-controller.component';
 import { CountryListComponent } from './pages/countries/country-list/country-list.component';
 import { CountryComponent } from './pages/countries/country-list/country/country.component';
+import { PopulationPipe } from './shared/pipe/population.pipe';
+import { FilterCountriesPipe } from './pages/countries/filter-countries.pipe';
+import { SearchCountryPipe } from './pages/countries/search-country.pipe';
+import { NativeCountryNamePipe } from './pages/country-detail/native-country-name.pipe';
+import { CountryCurrencyPipe } from './pages/country-detail/country-currency.pipe';
+import { CountryLanguagesPipe } from './pages/country-detail/country-languages.pipe';
 
 @NgModule({
   declarations: [
@@ -19,10 +27,18 @@ import { CountryComponent } from './pages/countries/country-list/country/country
     ThemeControllerComponent,
     CountryListComponent,
     CountryComponent,
+    PopulationPipe,
+    FilterCountriesPipe,
+    SearchCountryPipe,
+    NativeCountryNamePipe,
+    CountryCurrencyPipe,
+    CountryLanguagesPipe,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

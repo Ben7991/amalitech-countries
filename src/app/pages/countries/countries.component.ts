@@ -13,6 +13,6 @@ export class CountriesComponent implements OnInit {
   constructor(private countriesServices: CountriesService) { }
 
   ngOnInit(): void {
-    this.countriesServices.loadCountries();
+    // this.countriesServices.loadCountries();
   }
 }

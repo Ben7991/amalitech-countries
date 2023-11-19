@@ -13,14 +13,20 @@ export class CountryListComponent implements OnInit, OnDestroy {
   @Input() searchTerm = "";
   countries: Country[] = [];
   subscription: Subscription | undefined;
+  error = "";
 
   constructor(private countriesService: CountriesService) { }
 
   ngOnInit() {
-    this.subscription = this.countriesService.countriesChanged
-      .subscribe((fetchedCountries: Country[]) => {
-        this.countries = fetchedCountries.slice()
-      });
+    this.subscription = this.countriesService.loadCountries()
+      .subscribe({
+        next: countries => {
+          this.countries = countries;
+        },
+        error: error => {
+          this.error = error;
+        }
+      })
   }
 
   ngOnDestroy(): void {

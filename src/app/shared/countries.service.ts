@@ -1,57 +1,83 @@
 import { Injectable } from '@angular/core';
 import { Country } from './types/country';
 import { HttpClient } from '@angular/common/http';
-import { Subject, map } from 'rxjs';
+import { Subject, catchError, map, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CountriesService {
-  private countries: Country[] = [];
-  countriesChanged = new Subject<Country[]>();
+  countries: Country[] = [];
 
   constructor(private http: HttpClient) { }
 
+  public set fillCountries(countries: Country[]) {
+    this.countries = countries;
+  }
+
+  private createCountry(country: any): Country {
+    return {
+      commonName: country.name.common,
+      nativeName: country.name.nativeName,
+      flag: country.flags.svg,
+      capital: country.capital,
+      region: country.region,
+      population: country.population,
+      borderCountries: country.borders,
+      subRegion: country.subregion,
+      topLevelDomain: country.tld,
+      continent: country.continents[0],
+      currencies: country.currencies,
+      languages: country.languages,
+    }
+  }
+
   public loadCountries() {
-    this.http.get<Country[]>("https://restcountries.com/v3.1/all")
+    return this.http.get<Country[]>("https://restcountries.com/v3.1/all")
       .pipe(
         map((countries: any[]) => {
           let formattedCountries: Country[] = [];
           countries.forEach(country => {
-            formattedCountries.push({
-              commonName: country.name.common,
-              flag: country.flags.svg,
-              capital: country.capital,
-              region: country.region,
-              population: country.population,
-              borderCountries: country.borders,
-              subRegion: country.subregion,
-              topLevelDomain: country.tld,
-              continent: country.continents[0]
-            })
+            formattedCountries.push(this.createCountry(country))
           })
 
           return formattedCountries.sort((a: Country, b: Country) => {
-            var firstCountry: string = a.commonName;
-            var secondCountry: string = b.commonName;
-            if (firstCountry < secondCountry) return -1;
-            if (firstCountry > secondCountry) return 1;
+            if (a.commonName < b.commonName) return -1;
+            if (a.commonName > b.commonName) return 1;
             return 0;
           });
         }),
-      )
-      .subscribe(countries => {
-        this.countries.push(...countries);
-        this.countriesChanged.next(countries);
-        console.log(countries);
-      })
+        catchError(error => {
+          throw "Something wrong happened, please try again by refreshing page";
+        }),
+        tap(countries => {
+          this.countries = countries;
+        })
+      );
   }
 
-  public get countryList() {
-    return this.countries.slice();
-  }
+  public findCountryByName(name: string) {
+    let splitDetails = name.split("-");
+    let newCountryName = "";
 
-  public findCountryById(id: string): Country | undefined {
-    return this.countries.find(country => country.commonName === id);
+    for (let i = 0; i < splitDetails.length; i++) {
+      switch(splitDetails[i]) {
+        case "and":
+        case "of":
+          newCountryName += splitDetails[i] + " ";
+          break;
+        default:
+          let length = splitDetails[i].length;
+          newCountryName += splitDetails[i].substring(0, 1).toUpperCase() + splitDetails[i].substring(1, length) + ' ';
+      }
+    }
+
+    if (newCountryName.includes(","))
+      return this.countries.find(country => country.commonName.includes(","));
+
+    if (newCountryName.includes("("))
+      return this.countries.find(country => country.commonName.includes("("));
+
+    return this.countries.find(country => country.commonName.includes(newCountryName.trim()));
   }
 }

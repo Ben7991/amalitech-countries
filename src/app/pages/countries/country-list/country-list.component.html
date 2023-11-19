@@ -1,10 +1,17 @@
 <section class="container-padding mb-5">
   <div class="container-fluid p-0">
-    <div class="row">
+    <div class="row" *ngIf="!error else falseBlock">
       <div class="col-12 col-md-4 col-xl-3 mb-3"
         *ngFor="let loadedCountry of countries | searchCountry:searchTerm | filterCountries:filter">
         <app-country [country]="loadedCountry"></app-country>
       </div>
     </div>
+    <ng-template #falseBlock>
+      <div class="row justify-content-center">
+        <div class="col-12 col-md-6 col-xl-4">
+          <div class="alert mode-container mode-text">{{ error }}</div>
+        </div>
+      </div>
+    </ng-template>
   </div>
 </section>
