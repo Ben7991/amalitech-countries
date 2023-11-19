@@ -29,6 +29,14 @@
   -webkit-row-gap: 32px;
 }
 
+.border-descriptor {
+  width: 156px;
+}
+
+.border-country {
+  font-size: 0.875em;
+}
+
 @media (min-width: 768px) {
   .go-back {
     border-radius: 6px;
