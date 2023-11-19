@@ -1,14 +1,14 @@
 export interface Country {
   commonName: string;
   continent: string;
-  nativeName?: string;
+  nativeName: any;
   flag: string;
   population: number;
   region: string;
   subRegion: string;
   capital: string;
   topLevelDomain: string[];
-  currencies?: string[];
-  languagues?: string[];
+  currencies: any;
+  languages: any;
   borderCountries: string[];
 }
