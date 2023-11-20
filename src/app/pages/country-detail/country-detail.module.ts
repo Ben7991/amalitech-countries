@@ -6,6 +6,12 @@ import { CountryDetailComponent } from "./country-detail.component";
 import { CountryLanguagesPipe } from "./country-languages.pipe";
 import { NativeCountryNamePipe } from "./native-country-name.pipe";
 import { SharedModule } from "src/app/shared/shared.module";
+import { RouterModule, Routes } from "@angular/router";
+import { fetchCountriesResolver } from "./fetch-countries.resolver";
+
+const appRoutes: Routes = [
+  { path: "", component: CountryDetailComponent, resolve: {data: fetchCountriesResolver} },
+]
 
 @NgModule({
   declarations: [
@@ -17,6 +23,10 @@ import { SharedModule } from "src/app/shared/shared.module";
   imports: [
     CommonModule,
     SharedModule,
+    RouterModule.forChild(appRoutes)
+  ],
+  exports: [
+    RouterModule
   ]
 })
 export class CountryDetailModule { }

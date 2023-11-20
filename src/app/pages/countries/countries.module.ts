@@ -7,8 +7,12 @@ import { CountryListComponent } from "./country-list/country-list.component";
 import { CountryComponent } from "./country-list/country/country.component";
 import { FilterCountriesPipe } from "./filter-countries.pipe";
 import { SearchCountryPipe } from "./search-country.pipe";
-import { RouterModule } from "@angular/router"
+import { RouterModule, Routes } from "@angular/router"
 import { SharedModule } from "src/app/shared/shared.module";
+
+const appRoutes: Routes = [
+  { path: "", component: CountriesComponent, pathMatch: "full" },
+];
 
 @NgModule({
   declarations: [
@@ -22,7 +26,11 @@ import { SharedModule } from "src/app/shared/shared.module";
     FormsModule,
     RouterModule,
     SharedModule,
-    CommonModule
+    CommonModule,
+    RouterModule.forChild(appRoutes)
+  ],
+  exports: [
+    RouterModule
   ]
 })
 export class CountriesModule { }

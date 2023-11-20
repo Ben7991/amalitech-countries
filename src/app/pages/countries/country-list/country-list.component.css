@@ -40,6 +40,10 @@
   .countries {
     justify-content: space-between;
   }
+
+  .countries__section {
+    flex-basis: 300px;
+  }
 }
 
 @media (min-width: 1200px) {

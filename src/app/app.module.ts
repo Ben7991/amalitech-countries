@@ -10,7 +10,6 @@ import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.com
 
 import { CountriesModule } from './pages/countries/countries.module';
 import { CountryDetailModule } from './pages/country-detail/country-detail.module';
-import { PopulationPipe } from './shared/pipe/population.pipe';
 
 @NgModule({
   declarations: [
@@ -21,10 +20,10 @@ import { PopulationPipe } from './shared/pipe/population.pipe';
   ],
   imports: [
     BrowserModule,
+    CountriesModule,
+    CountryDetailModule,
     AppRoutingModule,
     HttpClientModule,
-    CountriesModule,
-    CountryDetailModule
   ],
   providers: [],
   bootstrap: [AppComponent]
