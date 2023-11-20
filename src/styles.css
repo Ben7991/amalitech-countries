@@ -1,10 +1,13 @@
 body {
-  font-size: 0.875em !important;
   font-family: "Nunito Sans", sans-serif;
 }
 
 .container-padding {
   padding: 0 16px;
+}
+
+.font-small {
+  font-size: 0.875em;
 }
 
 @media (min-width: 768px) {

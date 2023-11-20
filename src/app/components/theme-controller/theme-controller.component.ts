@@ -10,7 +10,7 @@ import { Theme, ThemeControllerService } from 'src/app/shared/theme-controller.s
       <span class="material-symbols-outlined">
         dark_mode
       </span>
-      <p class="m-0">Dark Mode</p>
+      <p class="m-0 font-small">Dark Mode</p>
     </div>
   `
 })

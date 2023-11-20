@@ -1,5 +1,5 @@
 <section class="container-padding list-controller">
-  <div class="container-fluid">
+  <div class="container-fluid p-0">
     <div class="list-controller__manipulator">
       <div class="mode-container list-controller__holder">
         <label for="search-input" class="mode-label pt-1">
@@ -10,7 +10,7 @@
       </div>
       <select aria-label="filter" class="list-controller__filter-dropdown mode-filter"
         [(ngModel)]="selectedFilter">
-        <option *ngFor="let item of filters; let i = index" [selected]="i === 0">
+        <option *ngFor="let item of filters; let i = index" [selected]="i === 0 ? true : false">
           {{ item }}
         </option>
       </select>

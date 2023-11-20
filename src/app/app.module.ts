@@ -17,6 +17,7 @@ import { SearchCountryPipe } from './pages/countries/search-country.pipe';
 import { NativeCountryNamePipe } from './pages/country-detail/native-country-name.pipe';
 import { CountryCurrencyPipe } from './pages/country-detail/country-currency.pipe';
 import { CountryLanguagesPipe } from './pages/country-detail/country-languages.pipe';
+import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { CountryLanguagesPipe } from './pages/country-detail/country-languages.p
     NativeCountryNamePipe,
     CountryCurrencyPipe,
     CountryLanguagesPipe,
+    PageNotFoundComponent,
   ],
   imports: [
     BrowserModule,

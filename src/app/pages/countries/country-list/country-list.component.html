@@ -1,7 +1,7 @@
-<section class="container-padding mb-5">
+<section class="container-padding countries-holder">
   <div class="container-fluid p-0">
-    <div class="row" *ngIf="!error else falseBlock">
-      <div class="col-12 col-md-4 col-xl-3 mb-3"
+    <div class="countries" *ngIf="!error else falseBlock">
+      <div class="countries__section mb-5"
         *ngFor="let loadedCountry of countries | searchCountry:searchTerm | filterCountries:filter">
         <app-country [country]="loadedCountry"></app-country>
       </div>

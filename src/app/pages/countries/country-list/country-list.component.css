@@ -1,0 +1,51 @@
+.countries-holder {
+  margin-top: 80px;
+  margin-bottom: 80px;
+}
+
+.countries {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 40px;
+  -webkit-row-gap: 40px;
+}
+
+.countries__section {
+  flex-basis: 264px;
+}
+
+@media (min-width: 768px) {
+  .countries-holder {
+    margin-top: 48px;
+    margin-bottom: 48px;
+  }
+
+  .countries {
+    flex-direction: row;
+    column-gap: 32px;
+    -webkit-column-gap: 32px;
+    row-gap: 67px;
+    -webkit-row-gap: 67px;
+    flex-wrap: wrap;
+  }
+
+  .countries__section {
+    flex-basis: 221px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .countries {
+    column-gap: 75px;
+    -webkit-column-gap: 75px;
+    row-gap: 67px;
+    -webkit-row-gap: 67px;
+    justify-content: space-between;
+  }
+
+  .countries__section {
+    flex-basis: 364px;
+  }
+}
