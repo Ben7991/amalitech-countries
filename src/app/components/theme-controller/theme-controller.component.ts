@@ -5,12 +5,12 @@ import { Theme, ThemeControllerService } from 'src/app/shared/theme-controller.s
   selector: 'app-theme-controller',
   styleUrls: ['./theme-controller.component.css'],
   template: `
-    <div class="d-flex align-items-center gap-1 mode-text" role="button"
+    <div class="d-flex align-items-center mode-text" role="button"
       (click)="onToggleTheme()">
-      <span class="material-symbols-outlined">
+      <span class="material-symbols-outlined theme-icon">
         dark_mode
       </span>
-      <p class="m-0 font-small">Dark Mode</p>
+      <p class="m-0 font-small theme-controller__desc">Dark Mode</p>
     </div>
   `
 })

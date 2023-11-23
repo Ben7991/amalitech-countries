@@ -13,7 +13,8 @@ export class SearchCountryPipe implements PipeTransform {
     const searchedCountries: Country[] = [];
 
     for(let item of value) {
-      if (item.commonName.includes(search))
+      let lowerCommonName = item.commonName.toLowerCase();
+      if (lowerCommonName.includes(search))
         searchedCountries.push(item);
     }
 

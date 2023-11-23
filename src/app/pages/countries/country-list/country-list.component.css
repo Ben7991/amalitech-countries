@@ -13,7 +13,7 @@
 }
 
 .countries__section {
-  flex-basis: 264px;
+  width: 264px;
 }
 
 @media (min-width: 768px) {

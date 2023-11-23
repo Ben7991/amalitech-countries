@@ -8,6 +8,7 @@
 .page-header__link {
   font-size: 0.875em;
   text-decoration: none;
+  font-weight: 800;
 }
 
 @media (min-width: 768px) {
