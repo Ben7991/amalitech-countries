@@ -1,9 +1,5 @@
 .material-symbols-outlined {
-  font-variation-settings:
-  'FILL' 0,
-  'wght' 400,
-  'GRAD' 0,
-  'opsz' 24
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
 }
 
 .go-back-holder {
@@ -56,7 +52,7 @@
   height: 28px;
   display: inline-block;
   text-align: center;
-  box-shadow: 0 0 4px 1px rbga(0,0,0,0.10);
+  box-shadow: 0 0 4px 1px rbga(0, 0, 0, 0.1);
   font-size: 0.75em;
   font-weight: 300;
   line-height: 28px;
@@ -76,7 +72,6 @@
   line-height: 1.2;
   font-weight: 300;
 }
-
 
 @media (min-width: 768px) {
   .detail-flag-holder {
@@ -102,5 +97,11 @@
 
   .detail-border__desc {
     flex-basis: 260px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .detail-border__desc {
+    flex-basis: 150px;
   }
 }

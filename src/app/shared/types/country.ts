@@ -10,5 +10,7 @@ export interface Country {
   topLevelDomain: string[];
   currencies: any;
   languages: any;
-  borderCountries: string[];
+  borderCountries?: string[];
+  fifa: string;
+  borderCountriesFifa: string[];
 }

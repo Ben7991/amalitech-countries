@@ -1,7 +1,9 @@
 <section class="container-padding go-back-holder">
   <div class="container-fluid p-0">
     <a class="go-back mode-container" routerLink="/">
-      <span class="material-symbols-outlined mode-text">keyboard_backspace</span>
+      <span class="material-symbols-outlined mode-text"
+        >keyboard_backspace</span
+      >
       <span class="mode-text">Back</span>
     </a>
   </div>
@@ -9,41 +11,50 @@
 
 <section class="container-padding mb-5">
   <div class="container-fluid p-0">
-    <div class="row justify-content-between">
+    <div class="row justify-content-between" *ngIf="country">
       <div class="col-12 col-md-5 col-lg-6 detail-flag-holder">
         <div class="mode-container w-100 overflow-hidden rounded">
-          <img [src]="country?.flag" alt="Country flag" class="w-100">
+          <img [src]="country!.flag" alt="Country flag" class="w-100" />
         </div>
       </div>
-      <div class="col-12 col-md-6 col-lg-5 d-flex justify-content-center flex-column">
-        <h2 class="mode-text mt-0 detail-heading">{{ country?.commonName }}</h2>
+      <div
+        class="col-12 col-md-6 col-lg-5 d-flex justify-content-center flex-column"
+      >
+        <h2 class="mode-text mt-0 detail-heading">{{ country!.commonName }}</h2>
         <div class="details mb-5">
           <div class="details-section">
             <p class="mode-text details-section__info">
-              <strong class="fw-semibold">Native Name</strong>: {{ country?.nativeName | nativeCountryName }}
+              <strong class="fw-semibold">Native Name</strong>:
+              {{ country.nativeName | nativeCountryName }}
             </p>
             <p class="mode-text details-section__info">
-              <strong class="fw-semibold">Population</strong>: {{ country?.population! | population }}
+              <strong class="fw-semibold">Population</strong>:
+              {{ country.population! | population }}
             </p>
             <p class="mode-text details-section__info">
-              <strong class="fw-semibold">Region</strong>: {{ country?.region }}
+              <strong class="fw-semibold">Region</strong>: {{ country.region }}
             </p>
             <p class="mode-text details-section__info">
-              <strong class="fw-semibold">Sub Region</strong>: {{ country?.subRegion }}
+              <strong class="fw-semibold">Sub Region</strong>:
+              {{ country.subRegion }}
             </p>
             <p class="mode-text details-section__info">
-              <strong class="fw-semibold">Capital</strong>: {{ country?.capital }}
+              <strong class="fw-semibold">Capital</strong>:
+              {{ country.capital }}
             </p>
           </div>
           <div class="details-section">
             <p class="mode-text details-section__info">
-              <strong class="fw-semibold">Top Level Domain</strong>: {{ country?.topLevelDomain }}
+              <strong class="fw-semibold">Top Level Domain</strong>:
+              {{ country.topLevelDomain }}
             </p>
             <p class="mode-text details-section__info">
-              <strong class="fw-semibold">Currencies</strong>: {{ country?.currencies! | countryCurrency }}
+              <strong class="fw-semibold">Currencies</strong>:
+              {{ country.currencies! | countryCurrency }}
             </p>
             <p class="mode-text details-section__info">
-              <strong class="fw-semibold">Languages</strong>: {{ country?.languages | countryLanguages }}
+              <strong class="fw-semibold">Languages</strong>:
+              {{ country.languages | countryLanguages }}
             </p>
           </div>
         </div>
@@ -54,11 +65,20 @@
             </p>
           </div>
           <div class="detail-border__list">
-            <span class="mode-container mode-text detail-border__item"
-              *ngFor="let borderCountry of country?.borderCountries">
+            <span
+              class="mode-container mode-text detail-border__item"
+              *ngFor="let borderCountry of country.borderCountries"
+            >
               {{ borderCountry }}
             </span>
           </div>
+        </div>
+      </div>
+    </div>
+    <div class="row justify-content-center" *ngIf="!country">
+      <div class="col-12 col-md-6 col-xl-4">
+        <div class="alert mode-container mode-text text-center">
+          Country not found, please try a different country name
         </div>
       </div>
     </div>

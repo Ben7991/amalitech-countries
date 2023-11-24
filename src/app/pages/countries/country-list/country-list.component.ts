@@ -6,27 +6,26 @@ import { Subscription } from 'rxjs';
 @Component({
   selector: 'app-country-list',
   templateUrl: './country-list.component.html',
-  styleUrls: ['./country-list.component.css']
+  styleUrls: ['./country-list.component.css'],
 })
 export class CountryListComponent implements OnInit, OnDestroy {
-  @Input() filter = "";
-  @Input() searchTerm = "";
+  @Input() filter = '';
+  @Input() searchTerm = '';
   countries: Country[] = [];
   subscription: Subscription | undefined;
-  error = "";
+  error = '';
 
-  constructor(private countriesService: CountriesService) { }
+  constructor(private countriesService: CountriesService) {}
 
   ngOnInit() {
-    this.subscription = this.countriesService.loadCountries()
-      .subscribe({
-        next: countries => {
-          this.countries = countries;
-        },
-        error: error => {
-          this.error = error;
-        }
-      })
+    this.subscription = this.countriesService.loadCountries().subscribe({
+      next: (countries) => {
+        this.countries = countries;
+      },
+      error: (error) => {
+        this.error = error;
+      },
+    });
   }
 
   ngOnDestroy(): void {
