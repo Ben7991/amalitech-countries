@@ -1,5 +1,4 @@
 import { Component, DoCheck, OnInit } from '@angular/core';
-import { CountriesService } from 'src/app/shared/countries.service';
 
 @Component({
   selector: 'app-countries',
@@ -11,16 +10,16 @@ export class CountriesComponent implements DoCheck, OnInit {
   selectedFilter = "Filter By Region";
   filters = ["Filter By Region", "Africa", "America", "Asia", "Europe", "Oceania"];
 
-  constructor(private countriesServices: CountriesService) { }
+  constructor() { }
 
   ngOnInit(): void {
-    this.searchedCountry = localStorage.getItem("search-term") ? localStorage.getItem("search-term")! : "";
-    this.selectedFilter = localStorage.getItem("filter-term") ? localStorage.getItem("filter-term")! : "Filter By Region";
+    this.searchedCountry = sessionStorage.getItem("search-term") ? sessionStorage.getItem("search-term")! : "";
+    this.selectedFilter = sessionStorage.getItem("filter-term") ? sessionStorage.getItem("filter-term")! : "Filter By Region";
   }
 
   ngDoCheck(): void {
-    localStorage.setItem("search-term", this.searchedCountry);
-    localStorage.setItem("filter-term", this.selectedFilter);
+    sessionStorage.setItem("search-term", this.searchedCountry);
+    sessionStorage.setItem("filter-term", this.selectedFilter);
   }
 
 }
