@@ -4,21 +4,23 @@ import { Country } from 'src/app/shared/types/country';
 @Component({
   selector: 'app-country',
   templateUrl: './country.component.html',
-  styleUrls: ['./country.component.css']
+  styleUrls: ['./country.component.css'],
 })
 export class CountryComponent implements OnInit {
   @Input() country: Country | undefined;
-  url: string = "";
+  url: string = '';
 
   ngOnInit(): void {
     this.createUrl();
   }
 
   private createUrl() {
-    if (this.country === undefined)
-      return;
+    if (this.country === undefined) return;
 
     let countryname = this.country.commonName.toLowerCase();
-    this.url = countryname.replaceAll(" ", "-");
+    this.url = countryname.replaceAll(' ', '-');
+    this.url = this.url.replaceAll(',', '');
+    this.url = this.url.replaceAll('(', '');
+    this.url = this.url.replaceAll(')', '');
   }
 }

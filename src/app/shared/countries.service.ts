@@ -85,9 +85,14 @@ export class CountriesService {
   private findCountryByNewName(newCountryName: string): Country | undefined {
     let foundCountry;
 
-    foundCountry = this.countries.find((country) =>
-      country.commonName.includes(newCountryName.trim())
-    );
+    foundCountry = this.countries.find((country) => {
+      let formattedName = country.commonName;
+      formattedName = formattedName
+        .replace(',', '')
+        .replace('(', '')
+        .replace(')', '');
+      return formattedName.includes(newCountryName.trim());
+    });
 
     if (foundCountry === undefined) return undefined;
 
